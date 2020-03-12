@@ -9,6 +9,37 @@ let menuItems = [
   'Log Out'
 ];
 
+
+function menuCreator(menuItems){
+let divMenu = document.createElement('div')
+divMenu.classList.add('menu')
+let unList = document.createElement('ul')
+divMenu.appendChild(unList)
+
+menuItems.forEach(item => {
+  let list = document.createElement('li')
+  unList.appendChild(list)
+  list.textContent = item
+  console.log(list)
+})
+
+document.querySelector('.menu-button').addEventListener('click', () =>{
+divMenu.classList.toggle('menu--open')
+})
+
+return divMenu
+}
+
+document.querySelector('.header').appendChild(menuCreator(menuItems));
+
+/* <div class="menu">
+<ul>
+  {each menu item as a list item}
+</ul>
+</div> */
+
+
+
 /* 
 
   Step 1: Write a function that will create a menu component as seen below:

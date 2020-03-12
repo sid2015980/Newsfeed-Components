@@ -112,3 +112,57 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+/* <div class="article">
+<h2>{title of the article}</h2>
+<p class="date">{date of the article}</p>
+
+{three separate paragraph elements}
+
+<span class='expandButton'></span>
+</div> */
+
+function articleCreator(data) {
+  const card = document.createElement('div')
+
+  const cardTitle = document.createElement('h2')
+  cardTitle.textContent = data.title
+
+  const cardDate = document.createElement('p')
+  cardDate.textContent = data.date
+
+  const cardPar1 = document.createElement('p')
+  cardPar1.textContent = data.firstParagraph
+
+  const cardPar2 = document.createElement('p')
+  cardPar2.textContent = data.secondParagraph
+
+  const cardPar3 = document.createElement('p')
+  cardPar3.textContent = data.thirdParagraph
+
+  const spanBtn = document.createElement('span')
+  spanBtn.textContent = 'CLICK ME!'
+
+
+  card.classList.add('article')
+  cardDate.classList.add('date')
+  spanBtn.classList.add('expandButton')
+
+  spanBtn.addEventListener('click', function () {
+    card.classList.toggle('article-open')
+
+  })
+    card.appendChild(cardTitle)
+    card.appendChild(cardDate)
+    card.appendChild(cardPar1)
+    card.appendChild(cardPar2)
+    card.appendChild(cardPar3)
+    card.appendChild(spanBtn)
+
+  return card
+}
+
+data.forEach(data => {
+  let loop = articleCreator(data)
+  document.body.appendChild(loop)
+})
