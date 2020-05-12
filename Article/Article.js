@@ -147,20 +147,30 @@ function articleCreator(data) {
   cardDate.classList.add("date");
   spanBtn.classList.add("expandButton");
 
-  spanBtn.addEventListener("click", function() {
-    card.classList.toggle("article-open");
+  spanBtn.addEventListener("click", 
+  function() {
+    card.classList.toggle("article-open")
   });
-  card.appendChild(cardTitle);
-  card.appendChild(cardDate);
-  card.appendChild(cardPar1);
-  card.appendChild(cardPar2);
-  card.appendChild(cardPar3);
-  card.appendChild(spanBtn);
+
+  card.append(cardTitle, cardDate, cardPar1, cardPar2, cardPar3, spanBtn)
+  // card.appendChild(cardTitle);
+  // card.appendChild(cardDate);
+  // card.appendChild(cardPar1);
+  // card.appendChild(cardPar2);
+  // card.appendChild(cardPar3);
+  // card.appendChild(spanBtn);
 
   return card;
 }
 
+const cardContainer = document.querySelector('body')
+
+// data.forEach(data => {
+//   let loop = articleCreator(data);
+//   document.body.appendChild(loop);
+// });
+
 data.forEach(data => {
-  let loop = articleCreator(data);
-  document.body.appendChild(loop);
+  cardContainer.appendChild(articleCreator(data))
 });
+
