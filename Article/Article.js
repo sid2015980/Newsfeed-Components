@@ -153,24 +153,18 @@ function articleCreator(data) {
   });
 
   card.append(cardTitle, cardDate, cardPar1, cardPar2, cardPar3, spanBtn)
-  // card.appendChild(cardTitle);
-  // card.appendChild(cardDate);
-  // card.appendChild(cardPar1);
-  // card.appendChild(cardPar2);
-  // card.appendChild(cardPar3);
-  // card.appendChild(spanBtn);
 
   return card;
 }
 
 const cardContainer = document.querySelector('body')
 
+data.forEach(data => {
+  cardContainer.appendChild(articleCreator(data))
+});
+
 // data.forEach(data => {
 //   let loop = articleCreator(data);
 //   document.body.appendChild(loop);
 // });
-
-data.forEach(data => {
-  cardContainer.appendChild(articleCreator(data))
-});
 
